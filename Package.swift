@@ -14,6 +14,9 @@ let package = Package(
             targets: ["JoinedText"]
         ),
     ],
+    dependencies: [
+        .package(name: "ViewInspector", url: "https://github.com/nalexn/ViewInspector", from: "0.4.5")
+    ],
     targets: [
         .target(
             name: "JoinedText",
@@ -21,7 +24,7 @@ let package = Package(
         ),
         .testTarget(
             name: "JoinedTextTests",
-            dependencies: ["JoinedText"]
+            dependencies: ["JoinedText", "ViewInspector"]
         ),
     ]
 )

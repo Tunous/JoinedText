@@ -10,7 +10,6 @@ import SwiftUI
 extension Sequence where Element == Text {
 
     /// Returns a new `Text` by concatenating the elements of the sequence,
-    /// adding the given separator between each element.
     ///
     /// The following example shows how an array of `Text` views can be joined to a
     /// single `Text` view with comma-separated string:
@@ -23,8 +22,13 @@ extension Sequence where Element == Text {
     ///   in this sequence. The default separator is a space character.
     /// - Returns: A single, concatenated `Text` view.
     public func joined(separator: Text = Text(" ")) -> Text {
-        reduce(Text("")) { (joinedText, text) in
-            joinedText + separator + text
+        var isInitial = true
+        return reduce(Text("")) { (joinedText, text) in
+            if isInitial {
+                isInitial = false
+                return text
+            }
+            return joinedText + separator + text
         }
     }
 }

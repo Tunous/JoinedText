@@ -3,5 +3,6 @@ import XCTest
 import JoinedTextTests
 
 var tests = [XCTestCaseEntry]()
-tests += JoinedTextTests.allTests()
+tests += CodeFlowTests.allTests()
+tests += TextJoiningTests.allTests()
 XCTMain(tests)

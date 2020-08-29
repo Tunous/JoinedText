@@ -38,8 +38,8 @@ You can use `Text(_ content:)` initializer to build your sentence from multiple 
 
 ```swift
 Text {
-    Text(“Example”)
-    Text(“sentence”).bold()
+    Text("Example")
+    Text("sentence").bold()
 }
 ```
 **Output:**
@@ -49,10 +49,10 @@ Text {
 By default all `Text`s declared inside of content block will be separated by a space character. You can change this behavior by providing your own separator text.
 
 ```swift
-Text(separator: “-“) {
-    Text(“joined”)
-    Text(“with”)
-    Text(“dashes”)
+Text(separator: "-") {
+    Text("joined")
+    Text("with")
+    Text("dashes")
 }
 ```
 **Output:**
@@ -62,10 +62,10 @@ Text(separator: “-“) {
 For even more control, like additional styling, pass in `Text` instance as a separator.
 
 ```swift
-Text(separator: Text(“ ! “).bold()) {
-    Text(“bold”)
-    Text(“exclamation”)
-    Text(“mark”)
+Text(separator: Text(" ! ").bold()) {
+    Text("bold")
+    Text("exclamation")
+    Text("mark")
 }
 ```
 **Output:**
@@ -76,11 +76,11 @@ Inside of text definition blocks you can use control flow statements such as `if
 
 ```swift
 Text {
-   Text(“Hello,”)
+   Text("Hello,")
    if let name = yourName {
        Text(name).bold()
    } else {
-       Text(“what is your name?”)
+       Text("what is your name?")
    }
 }
 ```
