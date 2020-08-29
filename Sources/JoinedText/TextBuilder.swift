@@ -56,10 +56,4 @@ public struct TextBuilder {
     public static func buildDo(_ texts: [Text]) -> [Text] {
         texts
     }
-
-    static func join(_ texts: [Text], separator: Text) -> Text {
-        texts.reduce(Text("")) { (joinedText, text) in
-            joinedText + separator + text
-        }
-    }
 }
