@@ -1,14 +1,17 @@
 import XCTest
 import SwiftUI
-import ViewInspector
 
 @testable import JoinedText
 
 final class TextJoiningTests: XCTestCase {
 
     func testCanBuildEmptyText() throws {
+        #if swift(<5.3)
+        throw XCTSkip("Available since swift 5.3")
+        #else
         let text = Text {}
         try assert(text, hasString: "")
+        #endif
     }
 
     func testReturnsPassedText() throws {

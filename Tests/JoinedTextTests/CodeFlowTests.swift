@@ -7,7 +7,6 @@
 
 import XCTest
 import SwiftUI
-import ViewInspector
 
 final class CodeFlowTests: XCTestCase {
 
@@ -60,6 +59,9 @@ final class CodeFlowTests: XCTestCase {
     }
 
     func testCanUseIfLetWithPositiveResult() throws {
+        #if swift(<5.3)
+        throw XCTSkip("Available since swift 5.3")
+        #else
         let optional: String? = "found"
         let text = Text {
            if let found = optional {
@@ -69,9 +71,13 @@ final class CodeFlowTests: XCTestCase {
            }
         }
         try assert(text, hasString: "found")
+        #endif
     }
 
     func testCanUseIfLetWithNegativeResult() throws {
+        #if swift(<5.3)
+        throw XCTSkip("Available since swift 5.3")
+        #else
         let optional: String? = nil
         let text = Text {
            if let found = optional {
@@ -81,21 +87,30 @@ final class CodeFlowTests: XCTestCase {
            }
         }
         try assert(text, hasString: "not found")
+        #endif
     }
 
     func testCanUseOptionalText() throws {
+        #if swift(<5.3)
+        throw XCTSkip("Available since swift 5.3")
+        #else
         let optionalText: Text? = Text("optional")
         let text = Text {
            optionalText
         }
         try assert(text, hasString: "optional")
+        #endif
     }
 
     func testCanUseNil() throws {
+        #if swift(<5.3)
+        throw XCTSkip("Available since swift 5.3")
+        #else
         let text = Text {
            nil
         }
         try assert(text, hasString: "")
+        #endif
     }
 
     func testCanUseDo() throws {
