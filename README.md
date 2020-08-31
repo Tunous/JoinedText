@@ -1,5 +1,8 @@
 # JoinedText
 
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FTunous%2FJoinedText%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/Tunous/JoinedText)
+![Build / Test](https://github.com/Tunous/JoinedText/workflows/Build%20/%20Test/badge.svg)
+
 A **SwiftUI** view for combining multiple `Text` views into a single `Text` instance.
 
 ```swift
