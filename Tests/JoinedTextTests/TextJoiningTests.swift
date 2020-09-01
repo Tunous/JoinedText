@@ -46,11 +46,24 @@ final class TextJoiningTests: XCTestCase {
         try assert(text, hasString: "exclamation ! mark")
     }
 
+    func testCanNestJoinedText() throws {
+        let text = Text {
+            Text("start")
+            Text(separator: "-") {
+                Text("middle")
+                Text("word")
+            }
+            Text("end")
+        }
+        try assert(text, hasString: "start middle-word end")
+    }
+
     static var allTests = [
         ("testCanBuildEmptyText", testCanBuildEmptyText),
         ("testReturnsPassedText", testReturnsPassedText),
         ("testDefaultSeparatorIsSpace", testDefaultSeparatorIsSpace),
         ("testCanChangeSeparatorToString", testCanChangeSeparatorToString),
         ("testCanChangeSeparatorToText", testCanChangeSeparatorToText),
+        ("testCanNestJoinedText", testCanNestJoinedText),
     ]
 }
